@@ -1,1 +1,72 @@
+## Implement a stack using singly linked list
+
+    public class StackLinkd21 {
+        public static void main(String[] args) {
+    UsingLink ob=new UsingLink();
+            System.out.println("the pushed elements are");
+    ob.push(24);
+    ob.push(32);
+    ob.push(45);
+    ob.push(56);
+    ob.display();
+            System.out.println("the top element is the shown"+ob.peek());
+            ob.pop();
+            ob.pop();
+            ob.display();
+            System.out.println("the peek element is"+ob.peek());
+            System.out.println("end program");
+        }
+    
+    
+    }
+    class UsingLink{
+        private class Node{
+            int data;
+            Node link;
+        }
+        Node top;
+        UsingLink(){this.top=null;}
+    public void push(int x){
+            Node temp=new Node();
+            if (temp==null){
+                System.out.println("heap overflow");
+                return ;
+            }
+            temp.data=x;
+            temp.link=top;
+            top=temp;
+    }
+    public boolean isEmpty(){return top==null;}
+        public int peek()
+        {
+            if(!isEmpty()){return top.data;}
+            else{
+                System.out.println("stack is empty");
+                return -1;
+            }
+        }
+        public void pop() {
+            if (top == null) {
+                System.out.println("stack overflow");
+                return;
+            }
+            top = top.link;
+        }
+        public void display(){
+            if(top==null){
+                System.out.println("it is in under flow");
+          System.exit(1);
+            }
+            else {
+                Node temp=top;
+                while (temp!=null){
+                    System.out.println(temp.data);
+                    temp=temp.link;
+                    if(temp!=null)
+    
+                        System.out.println("-->");
+                }
+            }
+        }
+        }
 
