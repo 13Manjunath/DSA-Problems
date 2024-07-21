@@ -1,1 +1,63 @@
+## Implementation of stack using array
 
+import java.sql.SQLOutput;
+
+public class Stack21 {
+   static final int MAX=1000;
+    int top;
+    int a[]=new int[MAX];
+    boolean isEmpty(){
+        return  (top<0);
+    }
+    Stack21(){
+ top = -1;
+    }
+    boolean push(int x){
+        if(top>=MAX-1){
+            System.out.println("Stack overflow occure");
+            return false;
+        }
+        else {
+            a[++top]=x;
+            System.out.println(x+"added number successifull");
+            return true;
+        }
+    }
+    int pop(){
+        if (top<0){
+            System.out.println("stack underflow");
+            return 0;
+        }
+        else {
+            int x=a[top--];
+            System.out.println(x+" popped succes");
+            return x;
+        }
+    }
+    int peek(){
+        if (top<0){
+            System.out.println("stack underflow");
+            return 0;
+        }
+        else {
+          int   x=a[top];
+          return x;
+        }
+    }
+    void print(){
+        for (int i=top;i>-1;i--){
+            System.out.println(" "+a[i]);
+        }
+    }
+
+    public static void main(String[] args) {
+        Stack21 manju=new Stack21();
+        manju.push(23);
+        manju.push(34);
+        manju.push(45);
+        manju.print();
+        System.out.println("by popping"+manju.pop());
+        System.out.println("by peek element"+manju.peek());
+        manju.print();
+    }
+}
