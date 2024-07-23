@@ -1,1 +1,27 @@
+## by usnig the jaava code:
 
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
+class JavaQueue {
+    public static void main(String[] args) {
+
+
+        Queue<String> q = new LinkedList<>();
+       q.add("manju");
+       q.add("shivu");
+       q.add("gouda");
+        System.out.println("Que ele"+q);
+        String front=q.remove();
+        System.out.println("rm ele"+front);
+        System.out.println(q);
+String peekd=q.peek();
+        System.out.println("peek"+peekd);
+        System.out.println(q);
+        String polled=q.poll();
+        System.out.println(polled);
+        System.out.println("after the all"+q);
+    }
+}
