@@ -1,1 +1,31 @@
+## Rotate String
+ class RotateStr {
+    static void PrintRotate(String str){
+        int len=str.length();
+        StringBuffer sb;
+        for (int i=0;i<len;i++){
+            sb=new StringBuffer();
+            int j=i;//current index
+            int k=0;//temp index
+            for (int k2=0;k2<len;k2++){
+                sb.insert(k,str.charAt(j));
+                k++;
+                j++;
+
+            }
+            j=0;
+            while (j<i){
+                sb.insert(k,sb.charAt(j));
+                i++;
+                j++;
+            }
+            System.out.println(sb);
+        }
+    }
+
+    public static void main(String[] args) {
+        String str=new String("manju");
+        PrintRotate(str);
+    }
+}
 
