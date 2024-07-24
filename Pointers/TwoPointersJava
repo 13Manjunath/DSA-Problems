@@ -1,1 +1,26 @@
+//by using two pointers method
+public class TwoPoimtr {
+    private static int Check(int A[], int x, int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (i == j)
+                    continue;
+                if (A[i] + A[j] == x)
+                    return 1;
+                if (A[i] + A[j] > x)
+                    break;
+            }
+
+        }
+            return 0;
+        }
+
+        public static void main (String[]args){
+            int arr[] = {2, 3, 5, 7, 9, 5};
+            int n = arr.length;
+            int x = 67;
+            System.out.println(Check(arr, x, n));
+        }
+    }
+
 
