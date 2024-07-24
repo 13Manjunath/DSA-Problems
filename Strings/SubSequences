@@ -1,1 +1,27 @@
+//by using the Strings
+import java.util.ArrayList;
+import java.util.List;
+
+public class SubSeq {
+    static List<String> al=new ArrayList<>();
+
+    public static void main(String[] args) {
+String s="abcde";
+findSubSeq(s," ");
+        System.out.println(al);
+    }
+    private  static void findSubSeq(String s,String ans){
+        if(s.length()==0){
+            al.add(ans);
+            return;
+        }
+        findSubSeq(s.substring(1),ans+s.charAt(0));
+        findSubSeq(s.substring(1),ans);
+    }
+}
+
+//TIME COMPLEXITY--->0(n)
+//
+
+
 
