@@ -1,1 +1,36 @@
+//inserting at the perticular position:
+
+public class InsertionAnyPos {
+    public static void AnyPos(int arr[],int n,int x,int pos){
+        for (int i=n-1;i>=pos;i--)//no needed of brace for the for loop
+            //shift the normal arr element to right position
+            arr[i+1]=arr[i];
+            arr[pos]=x;
+
+
+    }
+
+    public static void main(String[] args) {
+        int arr[] = new int[15];
+        arr[0] = 70;
+        arr[1] = 3;
+        arr[2] = 5;
+        arr[3] = 8;
+        arr[4] = 9;
+        arr[5] = 11;
+        int n = 6;
+        int x = 12;
+        int pos = 2;
+        for (int i = 0; i < n; i++) {
+            System.out.println(arr[i] + "before insert");
+        }
+        AnyPos(arr, n, x, pos);
+        n += 1;
+        System.out.println("after insert");
+        for (int i = 0; i < n; i++) {
+
+            System.out.println( arr[i]);
+        }
+    }
+}
 
