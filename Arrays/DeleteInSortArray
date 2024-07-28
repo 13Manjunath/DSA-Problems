@@ -1,1 +1,41 @@
+//deleting element in sorted array using binary Search
+
+public class DeleteinSorted {
+    static int binarySearch(int arr[],int high,int low,int key){
+        if (high<low)
+            return -1;
+        int mid=(low+high)/2;
+        if (key==arr[mid])
+            return mid;
+        if (key>arr[mid])
+            return binarySearch(arr,mid-1,low,key);
+        return binarySearch(arr,high,mid-1,key);
+
+    }
+    static int deletElement(int arr[],int n,int key) {
+
+        int pos = binarySearch(arr, n - 1, 0, key);
+        if (pos == -1) {
+            System.out.println("element not int the array");
+            return n;
+        }
+    int i;
+        for (i=pos;i<n-1;i++)
+            arr[i]=arr[i+1];
+        return n-1;
+    }
+
+    public static void main(String[] args) {
+        int arr[]={2,4,6,8,10};
+        int n=arr.length;
+        int key=6;
+        System.out.println("before delete---");
+        for (int i=0;i<n;i++)
+            System.out.println(arr[i]);
+        n=deletElement(arr,n,key);
+        System.out.println("after delete");
+        for (int i=0;i<n;i++)
+            System.out.println(arr[i]);
+    }
+}
 
