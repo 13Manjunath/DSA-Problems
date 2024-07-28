@@ -1,1 +1,39 @@
+//deleting by the unsorted search
+
+public class DeleteInUnsorted {
+    static int findElement(int arr[],int n,int key){
+        int i;
+        for ( i=0;i<n;i++)//condition to check it is present
+        if (arr[i]==key)
+            return i;  //if present return i exp:arr[3]-->3
+        return -1;//otherwise return -1
+    }
+    static int DeleteElemnt(int arr[],int n,int key){
+        int find=findElement(arr,n,key);
+        if (find==-1) {
+            System.out.println("Element not in the array");
+            return n;
+        }
+        int i;
+        for (i=find;i<n-1;i++)
+            arr[i]=arr[i+1];//by shifting value or delete.exp arr[3]=arr[3+1] --like that
+        return n-1;
+    }
+
+    public static void main(String[] args) {
+        int arr[]={9,2,3,4,5,6,1};
+        int n=arr.length;
+        int key=4;
+        System.out.println("before deleting");
+        for (int i=0;i<n;i++) {
+            System.out.println(arr[i]);
+        }
+        System.out.println("--after deleting--");
+        n=DeleteElemnt(arr,n,key);
+        for (int i=0;i<n;i++){
+            System.out.println(arr[i]);
+
+        }
+    }
+}
 
