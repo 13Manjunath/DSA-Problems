@@ -1,0 +1,45 @@
+//two methods here 1,on 2D array, 2. on 3D array
+
+public class IterateOnMultiDimns {
+    //Iterate over 2D arrays
+
+//    public static void main(String[] args) {
+//        int arr[][]={{1,2,3,4},{9,4,5,6},{4,7,8,9}};
+//        int n=3;
+//        int m=4;
+//        for (int i=0;i<n;i++){
+//            for (int j=0;j<m;j++){
+//                System.out.print(arr[i][j]+" ");
+//            }
+//            System.out.println();
+//        }
+//    }
+
+
+
+    //Iterative over 3D arrys
+    public static void main(String[] args) {
+        int arr[][][]={{{1,2},{2,3},{5,6},{7,8}}};
+        int x=2,y=2,z=2;
+        for (int i=0;i<x;i++){
+            System.out.println("inside"+(i+1)+" 2D array in 3d array");
+
+            for (int j=0;j<y;j++){
+
+                System.out.println("inside"+(j+1) +" 1d array of 2d array");
+
+                for (int k=0;k<z;k++){
+
+                    System.out.print(arr[i][j][k]+ " ");
+
+                }
+
+                System.out.println();
+
+            }
+
+            System.out.println();
+        }
+    }
+
+}
