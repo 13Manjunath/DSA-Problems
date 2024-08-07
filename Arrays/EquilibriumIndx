@@ -1,0 +1,50 @@
+//This is the equilibrium method by using two approach-->
+
+public class EquilibriumPoint {
+//    static int equilibrium(int arr[]){
+//        int n=arr.length;
+//        long leftSum,RightSum;
+//        for (int i=0;i<n;++i){
+//            leftSum=0;
+//            for (int j=0;j<n;j++){
+//                leftSum +=arr[j];
+//            }
+//            RightSum=0;
+//            for (int j=i+1;j<n;j++){
+//                RightSum +=arr[j];
+//            }
+//            if (leftSum==RightSum)
+//                return i+1;
+//        }
+//        return -1;
+//    }
+//
+//    public static void main(String[] args) {
+//        int arr[]={-7, 1, 5, 2, -4, 3, 0};
+//        System.out.println(equilibrium(arr));
+//    }
+    
+    
+    //2nd methoddd
+    
+    
+    
+    static int equilibrium(int arr[]){
+        int n=arr.length;
+        int right=0,pivot=0,left=0;
+        for (int i=0;i<n;i++){
+            right +=arr[i];
+        }
+        while (pivot<n-1 && right !=left){
+            pivot++;
+            right -=arr[pivot];
+            left +=arr[pivot-1];
+        }
+        return (left==right)?pivot+1:-1;
+    }
+
+    public static void main(String[] args) {
+        int arr[]={-7, 1, 5, 2, -4, 3, 0 };
+        System.out.println(equilibrium(arr));
+    }
+}
