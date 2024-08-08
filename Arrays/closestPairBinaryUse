@@ -1,0 +1,44 @@
+//closest pair using binary search
+
+import java.util.Arrays;
+
+public class ClosestPairBinary {
+    static int closest(int arr[],int left,int right,int x){
+        if (left>right)
+            return left-1;
+        int mid=(left+right)/2;
+        if (arr[mid]==x)
+            return mid;
+        else if (arr[mid]>x)
+            return closest(arr,left,mid-1,x);
+        else
+            return closest(arr,mid+1,right,x);
+    }
+    public static void printClosest(int arr1[],int arr2[],int m,int n,int x){
+        int diff=Integer.MAX_VALUE;
+        int res_l=0,res_r=0;
+        int l=0,r=n-1;
+        while (l<m && r>=0)
+            if (Math.abs(arr1[l]+arr2[r]-x)<diff){
+                res_l=l;
+                res_r=r;
+                diff=Math.abs(arr1[l]+arr2[r]-x);
+                if (arr1[l]+arr2[r]>x)
+                    r--;
+                else
+                    l++;
+        }
+        System.out.println("the closest pair is"+arr1[res_l]+"   "+arr2[res_r]);
+    }
+
+    public static void main(String[] args) {
+        int arr1[]={23,45,6,7,89,10};
+        int arr2[]={54,34,67,89,32,1};
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        int m=arr1.length;
+        int n=arr2.length;
+        int x=100;
+printClosest(arr1,arr2,m,n,x);
+    }
+}
