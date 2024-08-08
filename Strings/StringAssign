@@ -1,0 +1,12 @@
+
+public class StringAssign {
+    public static void main(String[] args) {
+        String manju="manjunath";
+        manju=manju.concat(" gouda");
+        System.out.println(manju);
+        String man=new String("manjunath");
+        System.out.println(man);
+    char  nan= "manjunathgouda".charAt(3);
+        System.out.println(nan);
+        }
+    }
