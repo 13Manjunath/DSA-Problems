@@ -1,0 +1,26 @@
+class Solution {
+    public int repeatedStringMatch(String a, String b) {
+        
+        // Calculate the minimum number of repetitions required
+        int minRepeats = (b.length() + a.length() - 1) / a.length();  // Ceiling of b.length() / a.length()
+        
+        // Start with minimum repeats of 'a'
+        StringBuilder temp = new StringBuilder(a.repeat(minRepeats));
+        int count = minRepeats;
+        
+        // Check if 'b' is a substring in the current repeated 'a'
+        if (temp.toString().contains(b)) {
+            return count;
+        }
+        
+        // Append one more time to handle overlap cases and check again
+        temp.append(a);
+        count++;
+        if (temp.toString().contains(b)) {
+            return count;
+        }
+        
+        // If 'b' is still not found, return -1
+        return -1;
+    }
+}
