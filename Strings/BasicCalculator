@@ -1,0 +1,46 @@
+class Solution {
+    public int calculate(String s) {
+        int result = 0;
+        int current = 0;
+        int lastNumber = 0;
+        char operator = '+'; // Default operator for the first number
+
+        // Iterate over each character in the string
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+
+            // If it's a digit, build the current number
+            if (Character.isDigit(c)) {
+                current = current * 10 + (c - '0');
+            }
+
+            // If it's an operator or we reach the end of the string, perform the last operation
+            if ((!Character.isDigit(c) && c != ' ') || i == s.length() - 1) {
+                switch (operator) {
+                    case '+':
+                        result += lastNumber; // Add last number to result
+                        lastNumber = current; // Set last number for future operation
+                        break;
+                    case '-':
+                        result += lastNumber; 
+                        lastNumber = -current; // Subtract the next number
+                        break;
+                    case '*':
+                        lastNumber *= current; // Multiply with last number
+                        break;
+                    case '/':
+                        lastNumber /= current; // Divide the last number
+                        break;
+                }
+                // Update operator for the next iteration
+                operator = c;
+                current = 0; // Reset current for the next number
+            }
+        }
+
+        // Add the last processed number
+        result += lastNumber;
+
+        return result;
+    }
+}
