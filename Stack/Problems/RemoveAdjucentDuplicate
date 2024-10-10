@@ -1,0 +1,19 @@
+class Solution {
+    public String removeDuplicates(String s) {
+        // Stack<Character> result=new Stack<>();
+StringBuilder result= new StringBuilder();
+        
+        int top=-1;//0,1
+        for(char c:s.toCharArray()){
+            if(top >=0 && result.charAt(top) == c){
+                result.deleteCharAt(top--);
+            }
+            else{
+                result.append(c);//
+                top++;
+            }
+        }
+        return result.toString();
+    }
+}
+//[c,a ]
