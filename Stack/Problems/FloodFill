@@ -1,0 +1,22 @@
+class Solution {
+    public int[][] floodFill(int[][] image, int sr, int sc, int color) {
+        int origin=image[sr][sc];
+
+        if(origin == color){
+            return image;
+        }
+        fill(image,sr,sc,color,origin);
+        return image;
+    }
+
+    private void fill(int[][] image,int r,int c,int color,int origin){
+        if(r<0 || r>= image.length || c<0 || c>= image[0].length|| image[r][c] != origin  ){
+            return;
+        }
+        image[r][c] = color;
+        fill(image,r+1,c,color,origin);
+        fill(image,r-1,c,color,origin);
+        fill(image,r,c+1,color,origin);
+        fill(image,r,c-1, color,origin);
+    }
+}
