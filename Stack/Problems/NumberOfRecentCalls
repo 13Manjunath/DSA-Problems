@@ -1,0 +1,23 @@
+class RecentCounter {
+Deque<Integer> qu;
+    public RecentCounter() {
+        //0
+      qu=new LinkedList<>();
+    }
+    
+    public int ping(int t) {
+        qu.addLast(t);
+
+        while(!qu.isEmpty() && qu.peekFirst() < t- 3000){
+            qu.removeFirst();
+        }
+        return qu.size();
+        
+    }
+}
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * RecentCounter obj = new RecentCounter();
+ * int param_1 = obj.ping(t);
+ */
